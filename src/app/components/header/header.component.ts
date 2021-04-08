@@ -7,5 +7,20 @@ import { Component } from '@angular/core';
 })
 
 export class HeaderComponent {
-    title = 'angular-practice';
+
+    firstName = 'Joe';
+    lastName = 'Schmo';
+    activity = {
+        lastLogin: '4/7/21',
+        activeStatus: 'active',
+    };
+    userInfo = {
+        age: '27',
+        sex: 'male',
+        position: 'web developer'
+    }
+
+    constructor () {
+        console.log(`${this.firstName} ${this.lastName} has logged in`)
+    }
 }
