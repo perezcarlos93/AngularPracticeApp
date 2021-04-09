@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { User } from '../../models/User'
 
 @Component({
     selector: 'app-header',
@@ -6,21 +7,27 @@ import { Component } from '@angular/core';
     styleUrls: ['./header.component.css']
 })
 
-export class HeaderComponent {
 
-    firstName = 'Joe';
-    lastName = 'Schmo';
-    activity = {
-        lastLogin: '4/7/21',
-        activeStatus: 'active',
-    };
-    userInfo = {
-        age: '27',
-        sex: 'male',
-        position: 'web developer'
+export class HeaderComponent implements OnInit {
+
+    user: User
+
+    ngOnInit() {
+        this.user = {
+            firstName: 'carlos',
+            lastName: 'perez',
+            activity: {
+                lastLogin: 10,
+                activeStatus: true,
+            },
+            userInfo: {
+                age: 27,
+                sex: 'male',
+                position: 'web developer'
+            }
+        }
     }
-
+    
     constructor () {
-        console.log(`${this.firstName} ${this.lastName} has logged in`)
     }
 }
