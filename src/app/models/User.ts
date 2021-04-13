@@ -1,13 +1,10 @@
 export interface User {
-    firstName: string,
-    lastName: string,
-    activity: {
-        lastLogin: number,
-        activeStatus: boolean,
-    },
-    userInfo: {
-        age: number,
-        sex: string,
-        position: string,
-    }
+  firstName: string,
+  lastName: string,
+  age: number,
+  address: {
+    street: string,
+    city: string,
+    state: string
+  }
 }
