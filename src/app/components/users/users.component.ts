@@ -58,7 +58,9 @@ export class UsersComponent implements OnInit {
             state: 'MA'
           },
           image: 'https://picsum.photos/id/237/600',
-          isActive: true
+          isActive: true,
+          balance: 100,
+          registered: new Date('01/02/2021 08:30:00')
         },
         {
           firstName: 'Kevin',
@@ -70,7 +72,9 @@ export class UsersComponent implements OnInit {
             state: 'MA'
           },
           image: 'https://picsum.photos/id/236/600',
-          isActive: false
+          isActive: false,
+          balance: 200,
+          registered: new Date('05/07/2020 06:14:00')
         },
         {
           firstName: 'Karen',
@@ -82,25 +86,27 @@ export class UsersComponent implements OnInit {
             state: 'FL'
           },          
           image: 'https://picsum.photos/id/235/600',
-          isActive: true
+          isActive: true,
+          balance: 52,
+          registered: new Date('11/02/2020 12:30:00')
         }
       ]
 
       this.loaded = true
     }, 2000)
 
-    setTimeout(() => [
-      this.addUser({
-        firstName: 'David',
-        lastName: 'Jackson',
-        age: 44,
-        address: {
-          street: '12 Wake st',
-          city: 'Miami',
-          state: 'FL'
-        },
-        image: 'https://picsum.photos/id/234/600'
-      }),
-    ], 4000)
+    // setTimeout(() => [
+    //   this.addUser({
+    //     firstName: 'David',
+    //     lastName: 'Jackson',
+    //     age: 44,
+    //     address: {
+    //       street: '12 Wake st',
+    //       city: 'Miami',
+    //       state: 'FL'
+    //     },
+    //     image: 'https://picsum.photos/id/234/600'
+    //   }),
+    // ], 4000)
   }
 }
