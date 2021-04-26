@@ -2,24 +2,29 @@
 
 <button
   [disabled]="!enableAdd"
-  class="btn btn-light btn-block mb-3"
+  class="btn btn-block mb-3"
   [ngClass]="currentClasses"
 >
   Add New User
 </button>
 
 <ul *ngIf="loaded && users?.length > 0">
+  <!-- Individual Cards -->
   <li
-    class="card card-body mb-3"
+    class="card card-body mb-3 bg-white"
     *ngFor="let user of users"
     [class.bg-light]="user.isActive"
+    [style.border-color]="user.isActive ? 'green' : ''"
   >
+    <!-- Card Content -->
     <div class="row">
       <div class="col-sm-4" *ngIf="user.image">
         <img class="img-fluid" [src]="user.image" alt="" />
       </div>
       <div class="col-sm-8">
-        <h4>{{ user.firstName }} {{ user.lastName }}</h4>
+        <h4 [ngStyle]="currentStyles">
+          {{ user.firstName }} {{ user.lastName }}
+        </h4>
         <ul *ngIf="showExtended">
           <li class="list-group-item">Age: {{ user.age }}</li>
           <li class="list-group-item">

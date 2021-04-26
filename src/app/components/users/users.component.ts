@@ -9,19 +9,42 @@ import { User } from '../../models/User';
 })
 export class UsersComponent implements OnInit {
   users: User[];
-  showExtended: Boolean = false
-  loaded: Boolean = false
-  enableAdd: Boolean = true
+  showExtended: Boolean = true
+  loaded: boolean = false
+  enableAdd: boolean = false
   currentClasses = {}
+  currentStyles = {}
 
   constructor() { }
 
   addUser(user: User) {
     this.users.push(user);
   }
+
+  setCurrentStyles () {
+    this.currentStyles = {
+      'padding-top': this.showExtended ? '0' : '40px',
+      'font-size': this.showExtended ? '' : '40px'
+    }
+  }
+
+  setCurrentClasses () {
+    this.currentClasses = {
+      'btn-success': this.enableAdd,
+      'large-text': this.showExtended
+    }
+  };
+  
   
   ngOnInit() {
 
+    this.enableAdd = true
+    
+    this.setCurrentClasses()
+    this.setCurrentStyles()
+
+    console.log(this.currentClasses);
+    console.log(this.currentStyles);
 
     setTimeout(() => {
       this.users = [
@@ -34,7 +57,7 @@ export class UsersComponent implements OnInit {
             city: 'Boston',
             state: 'MA'
           },
-          image: 'http://lorempixel.com/600/600/people/4',
+          image: 'https://picsum.photos/id/237/600',
           isActive: true
         },
         {
@@ -46,7 +69,7 @@ export class UsersComponent implements OnInit {
             city: 'Lynn',
             state: 'MA'
           },
-          image: 'http://lorempixel.com/600/600/people/5',
+          image: 'https://picsum.photos/id/236/600',
           isActive: false
         },
         {
@@ -58,7 +81,7 @@ export class UsersComponent implements OnInit {
             city: 'Miami',
             state: 'FL'
           },          
-          image: 'http://lorempixel.com/600/600/people/6',
+          image: 'https://picsum.photos/id/235/600',
           isActive: true
         }
       ]
@@ -76,20 +99,8 @@ export class UsersComponent implements OnInit {
           city: 'Miami',
           state: 'FL'
         },
-        image: 'http://lorempixel.com/600/600/people/7'
+        image: 'https://picsum.photos/id/234/600'
       }),
-
-      this.showExtended = true
     ], 4000)
-
-    this.setCurrentClasses()
-
   }
-
-  setCurrentClasses () {
-    this.currentClasses = {
-      'btn-success': this.enableAdd
-    }
-  }
-
 }
